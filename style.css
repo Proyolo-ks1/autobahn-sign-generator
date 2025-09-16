@@ -1,0 +1,509 @@
+:root {
+    --page-background: #1a1a1a;
+    --placeholder1:#ff0;
+    --placeholder2:#f0f;
+    --placeholder3:#0ff;
+
+    --color-button-tooltip-background: #444;
+    
+    --sign-background-color: #154889;
+    --chat-message-default-text: #ffffff;
+    --dropdown-background: #3a312d;
+    --dropdown-border: #6c5b54;
+}
+
+/* Normaal gewicht */
+@font-face {
+    font-family: 'AlteDIN';
+    src: url('fonts/AlteDIN1451Mittelschrift-Regular.woff2') format('woff2'),
+        url('fonts/AlteDIN1451Mittelschrift-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Bold variant (als beschikbaar) */
+@font-face {
+    font-family: 'AlteDIN';
+    src: url('fonts/AlteDIN1451Mittelschrift-Bold.woff2') format('woff2'),
+        url('fonts/AlteDIN1451Mittelschrift-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: 'AlteDIN', 'Segoe UI';
+    background-color: var(--page-background);
+    color: #f0f0f0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+main {
+    flex: 1 1 auto;
+    overflow: auto; /* allow internal scroll if needed */
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* MARK: Background
+*/
+
+#custom-background {
+    position: absolute;   /* inside main, relative to main */
+    overflow-x: hidden;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: 100%;
+    pointer-events: none; /* clicks pass through */
+    z-index: -1;           /* lowest in stacking inside main */
+}
+
+#sideImage {
+    height: 90%;         /* scale to container height */
+    opacity: 0.3;         /* subtle background effect */
+    overflow-x: hidden;
+}
+
+/* MARK: Header & Footer
+*/
+
+header {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 0.5rem 1rem;
+    background-color: #262626;
+}
+
+header img {
+    height: 50px;
+}
+
+.header-text {
+    text-align: center;
+}
+
+.header-text h1 {
+    margin: 0;
+}
+
+.header-text span {
+    font-size: 0.75rem;
+    color: #999;
+}
+
+footer {
+    flex-shrink: 0;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    background-color: #262626;
+    font-weight: normal;
+    font-size: 0.8rem;
+}
+
+footer a {
+    color: #ffaa00;
+    text-decoration: none;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: #ffd266;
+}
+
+/* MARK: Page Navigation
+*/
+.nav-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap; /* wrap to next line if too narrow */
+    margin: 0.5rem; /* space from header edges */
+}
+
+.nav-button {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    background: linear-gradient(#b59781, #9b806d);
+    border: 1px solid #9b806d;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-button:hover {
+    background: linear-gradient(#a17f6a, #876956);
+}
+
+/* MARK: Update Log
+*/
+
+#changelog-container h2 {
+    font-size: 2rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+#changelog-container {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: var(--dropdown-background);
+    line-height: 1.4;
+}
+
+.update-box {
+    border: 1px solid #ccc;
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 6px;
+    background-color: var(--chat-message-me-background);
+    color: var(--chat-message-default-text);
+}
+
+.update-box-date {
+    color: #1a1a1a;
+    font-size: 0.8em;
+    margin-bottom: 0.3em;
+}
+
+.update-box-title {
+    color: #eeeeee;
+    font-weight: bold;
+    margin: 0 0 0.3em 0;
+}
+
+.update-box-desc {
+    color: #bbbbbb;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+/* MARK: Controls
+*/
+
+.controls {
+    max-width: 600px;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.controls label, .controls select, .controls textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    font-family: 'Clash', sans-serif;
+}
+
+.custom-dropdown {
+    max-width: 600px;
+    margin-bottom: 1rem;
+    font-family: 'Clash', sans-serif;
+    position: relative;
+}
+
+.dropdown-selected {
+    background-color: var(--dropdown-background);
+    border: 3px solid var(--dropdown-border);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: #b59781;
+    font-weight: bold;
+}
+
+.dropdown-selected:hover {
+    background-color: #2e2724; /* a touch darker than #3a312d */
+    border-color: #b59781;     /* highlight border */
+    box-shadow: 0 0 6px #b59781; /* soft glow */
+    transition: background-color 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.dropdown-selected:focus {
+    outline: 2px solid #9b806d;
+}
+
+.dropdown-options {
+    list-style: none;
+    margin: 0;
+    padding: 0.25rem 0;
+    background: var(--dropdown-background);
+    border: 1px solid var(--dropdown-border);
+    border-radius: 8px;
+    position: absolute;
+    width: 100%;
+    max-height: 180px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    display: none; /* hidden by default */
+    z-index: 1000;
+}
+
+.dropdown-options.show {
+    display: block;
+}
+
+.dropdown-options li {
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
+    border-radius: 6px;
+    background: linear-gradient(to bottom, #b59781, #9b806d);
+    border: 1px solid #9b806d; /* inverse border */
+    cursor: pointer;
+    color: #fff;
+}
+
+.dropdown-options li.selected {
+    background: linear-gradient(to bottom, #9b806d, #b59781);
+    font-weight: bold;
+}
+
+.dropdown-options li:hover {
+    background: linear-gradient(to bottom, #a17f6a, #876956);
+}
+
+#presetColorButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.color-btn, #colorWheelButton {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--dropdown-border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    padding: 0;
+    box-sizing: border-box;
+    align-items: center;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.color-btn:hover {
+    transform: scale(1.2);
+}
+
+#customColorGroup {
+    display: flex;
+    flex-direction: row;
+    border-radius: 8px;
+    background-color: var(--dropdown-background);
+    gap: 0.5rem;
+    margin-left: calc(32px + 0.5rem);
+}
+
+#customColorTextField {
+    width: calc(96px + 1rem);
+    font-family: monospace;
+    border: 3px solid var(--dropdown-border);
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 16px;
+}
+
+#customColorTextField:focus {
+    outline: none;
+    border-color: #b59781;
+}
+
+#customColorsButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+#colorWheelWrapper {
+    position: relative;
+    display: inline-block;
+}
+
+#colorWheelButton {
+    position: relative;
+    z-index: 10;
+}
+
+#colorWheelButton:hover {
+    border: 0px solid var(--dropdown-border);
+    box-shadow: 0 0 8px backgroundColor, 0 0 16px backgroundColor;
+    transform: scale(1.2);
+}
+
+#colorWheelButtonGlow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+    border-radius: 100%;
+    z-index: 11;
+}
+
+#colorWheelWrapper:hover #colorWheelButtonGlow {
+    opacity: 1;
+}
+
+/* MARK: Typing
+*/
+
+#messageInput {
+    height: 120px;
+    font-size: 1rem;
+    font-family: 'Clash', sans-serif;
+    font-weight: normal;
+    resize: none;
+    margin-top: 1rem;
+}
+
+#messageActions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#copyMessageBtn {
+    background: var(--dropdown-background);
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+
+
+/* MARK: PREVIEW
+*/
+
+.preview {
+    width: 100%;
+    max-width: 600px;
+}
+
+.preview-box {
+    padding: 1rem;
+    min-height: 100px;
+    background-color: #000000;
+}
+
+/* MARK: > Chat Message
+*/
+
+.clan-chat {
+    border-right: 5px solid var(--chat-border);
+    background-color: var(--chat-background);
+    padding: 1rem;
+}
+
+/* GENERAL MESSAGE */
+.sign {
+    max-width: 80%;
+}
+
+.autobahn-sign-default {
+    background-color: var(--sign-background-color);
+    padding: 5px;
+    border-radius: 8px;
+    outline:#fff 
+}
+
+
+
+/* MARK: Custom Markup
+*/
+.underline {
+    text-decoration: underline;
+}
+
+
+/* MARK: Video Website */
+
+#video-tutorial-container {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: var(--dropdown-background);
+    line-height: 1.4;
+}
+
+#video-tutorial-container h2{
+    font-size: 2rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+#video-tutorial-container video {
+    width: 80%;
+    max-width: 1280px;
+    height: auto;
+    min-height: 240px;
+    display: block;
+    margin: 1rem auto; /* centers video */
+    outline: 5px solid var(--chat-message-other-name);
+}
+
+
+/* MARK: MOBILE
+*/
+@media (max-width: 700px) {
+    #presetColorButtons {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+    #customColorsButtons {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+    #video-tutorial-container video {
+    width: 100%;
+    min-height: 180px;
+    height: auto;
+}
+}
+
+
+
+/* MARK: Debugging
+/* Only applies when debug-mode is active on body */
+.debug-mode .clan-chat {
+    border: 5px solid var(--placeholder1);
+    border-right: 5px solid var(--chat-border);
+}
+
+.debug-mode .preview-chat-message {
+    border: 5px solid var(--placeholder2);
+}
+
+.debug-mode .preview-chat-message .message-player {
+    border: 5px solid var(--placeholder3);
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- SEO -->
+    <meta name="description" content="Preview how Clash of Clans messages look before sending them. This fan-made tool supports clan chat, clan mail, troop requests, war letters, and more." />
+    <meta name="keywords" content="Clash of Clans, CoC, text previewer, message preview, chat preview, clan mail, troop request, war letter">
+
+    <meta name="google-site-verification" content="_lD2auv5JLf_-OG9aqRztStylNcWOmdT1Cc32AaByA8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google Analytics -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-LHQTKW7HXP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LHQTKW7HXP');
+    </script> -->
+
+    <!-- CSS -->
+    <title>Autobahn Sign Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://db.onlinewebfonts.com/c/474a518c2af0e7ef9a9c17f8648907c0?family=CCBackBeat+W90+Heavy+Italic" rel="stylesheet">
+
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="Autobahn Sign Generator" />
+    <meta property="og:description" content="Generate your custom Autobahn Sign! with live formatting!" />
+
+    <meta property="og:image" content="https://proyolo-ks1.github.io/coc-message-previewer/images/Open-Graph-Image.png" />
+
+    <meta property="og:video" content="https://proyolo-ks1.github.io/coc-message-previewer/images/Coc-Chat-Message-Previewer-Tutorial.mp4" />
+    <meta property="og:video:type" content="video/mp4" />
+    <meta property="og:video:width" content="1280" />
+    <meta property="og:video:height" content="720" />
+
+    <meta property="og:url" content="https://proyolo-ks1.github.io/coc-message-previewer/" />
+    <meta property="og:type" content="website" />
+</head>
+<body>
+    <header>
+        <a href="https://en.wikipedia.org/wiki/Autobahn" target="_blank" rel="noopener">
+            <img src="images/AutobahnSign.png" alt="Autobahn Sign">
+        </a>
+        <div class="header-text">
+            <h1>Autobahn Sign Generator</h1>
+            <span>made by proyolo-ks1</span>
+        </div>
+        <a href="https://en.wikipedia.org/wiki/Road_signs_in_Germany#Regulatory_signs_2" target="_blank" rel="noopener">
+            <img src="images/No-Speed-Limit.png" alt="No Speed Limit Sign">
+        </a>
+    </header>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <!-- REMOVED: <a href="index.html" class="nav-button">⬅ Take Me Back</a> -->
+        <a href="tutorial-video.html" class="nav-button">🎬 Tutorial</a>
+    </div>
+
+    <main>
+        <div id="custom-background">
+        <img src="images/Autobahn_1-9-Perspective.png" id="sideImage" alt="Autobahn 1 to 9 on a Map">
+    </div>
+        <div class="controls">
+            <div class="custom-dropdown">
+                <label>Select sign type:</label>
+                <div class="dropdown-selected" tabindex="0">Default Sign (0% Done)</div>
+                <ul class="dropdown-options" tabindex="-1" aria-hidden="true">
+                    <li data-value="default" class="selected">Default Sign (0% Done)</li>
+                    <li data-value="overhead">Overhead Sign (Soon)</li>
+                    <li data-value="side">Side Sign (Soon)</li>
+                    <li data-value="wide">Wide Sign (Soon)</li>
+                </ul>
+            </div>
+            <div id="coloring">
+                <div id="presetColorButtons">
+                    <!-- First row -->
+                    <button class="color-btn" color-id="0" style="background:#000000" title="Black"></button>
+                    <button class="color-btn" color-id="1" style="background:#FFFFFF" title="White"></button>
+                    <button class="color-btn" color-id="2" style="background:#FF0000" title="Red"></button>
+                    <button class="color-btn" color-id="3" style="background:#00FF00" title="Green"></button>
+                    <button class="color-btn" color-id="4" style="background:#0000FF" title="Blue"></button>
+                    <button class="color-btn" color-id="5" style="background:#00FFFF" title="Aqua"></button>
+                    <button class="color-btn" color-id="6" style="background:#FF00FF" title="Magenta"></button>
+                    <button class="color-btn" color-id="7" style="background:#FFFF00" title="Yellow"></button>
+                    <button class="color-btn" color-id="9" style="background:#bf1238" title="Dark Red"></button>
+
+                    <!-- Custom color segment -->
+                    <div id="customColorGroup">
+                        <button class="color-btn" id="customColorBtn" color-id="customColorBtn" style="background:#000000" title="Custom Color"></button>
+                        <input id="customColorTextField" type="text" maxlength="7" placeholder="#RRGGBB" />
+                        <div id="colorWheelWrapper" style="position: relative; display: inline-block;">
+                            <button id="colorWheelButton" title="Use Color Wheel">
+                                <img src="images/ColorWheelSquare.png" alt="Custom Color Button Image">
+                            </button>
+                            <img src="images/ColorWheelSquare.png" id="colorWheelButtonGlow" alt="Glow Effect">
+                        </div>
+                        <input id="customColorPicker" type="color" style="display:none" />
+                    </div>
+                </div>
+            </div>
+            <textarea id="messageInput" placeholder="Type your message here..."></textarea>
+            <div id="messageActions">
+                <button id="copyMessageBtn" title="Copy to clipboard">📋</button>
+                <span id="charCounter"></span>
+            </div>
+        </div>
+
+        <div class="preview">
+            <h2>Preview</h2>
+            <div id="previewBox" class="preview-box">
+                Your message will appear here...
+            </div>
+        </div>
+
+        <div id="changelog-container">
+            <h2>Changelog</h2>
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            Tool created by 
+            <a href="https://github.com/Proyolo-ks1" class="author-name" target="_blank" rel="noopener noreferrer">
+                Proyolo-ks1
+            </a> 
+            — unofficial and not affiliated with Goverment lol. This material is fan-made and is not an official Autobahn product. For more Information About the Autobahn: 
+            <a href="https://en.wikipedia.org/wiki/Autobahn" target="_blank" rel="noopener noreferrer">Wikipedia Autobahn</a>.
+        </p>
+        <p>
+            version <span id="version-number">unknown</span>
+            &nbsp;—&nbsp;
+            <a href="https://github.com/Proyolo-ks1/coc-message-previewer/issues" target="_blank" rel="noopener noreferrer">
+                Report bugs or suggest features
+            </a>
+            &nbsp;—&nbsp;
+            <a href="#" id="share-link">Share</a>
+            <span id="copy-feedback" style="display:none; color:green; margin-left: 8px;">Copied!</span>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="scripts/update-changelog-and-version.js"></script>
+</body>
+</html>
