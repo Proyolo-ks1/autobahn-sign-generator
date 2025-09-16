@@ -1,12 +1,12 @@
-# Clash of Clans Message Previewer
-Preview how Clash of Clans messages look before sending them. Supports clan mail, troop requests, war letters, and more.
+# Autobahn Sign Generator
+Generate your custom Autobahn Sign! with live formatting and more.
 
 ## 🌐 Live Website
-Check it out here: [Clash of Clans Message Previewer](https://proyolo-ks1.github.io/coc-message-previewer/), or click on the image down below :)
+Check it out here: [Autobahn Sign Generator](https://proyolo-ks1.github.io/autobahn-sign-generator/), or click on the image down below :)
 
 ## 🖼️ Preview
-[![Clash of Clans Message Previewer Screenshot](images/coc-message-previewer-preview-1280×720.png)](https://proyolo-ks1.github.io/coc-message-previewer/)
+[![Autobahn Sign Generator Screenshot](images/autobahn-sign-generator-preview-1280×720.png)](https://proyolo-ks1.github.io/autobahn-sign-generator/)
 
 ## 🎬 Tutorial
-[Watch the tutorial video (HQ)](https://proyolo-ks1.github.io/coc-message-previewer/tutorial-video.html)
-[![Clash of Clans Message Previewer Tutorial](images/Coc-Chat-Message-Previewer-Tutorial.gif)](https://proyolo-ks1.github.io/coc-message-previewer/tutorial-video.html)
+[Watch the tutorial video (HQ)](https://proyolo-ks1.github.io/autobahn-sign-generator/tutorial-video.html)
+[![Autobahn Sign Generator Tutorial](images/autobahn-sign-generator-tutorial.gif)](https://proyolo-ks1.github.io/autobahn-sign-generator/tutorial-video.html)
